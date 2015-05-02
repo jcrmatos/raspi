@@ -1,7 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Raspberry."""
+# Copyright 2009-2015 Joao Carlos Roseta Matos
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+"""Helper functions to use with the Raspberry Pi and the RPi.GPIO."""
 
 # Python 3 compatibility
 from __future__ import absolute_import
@@ -9,6 +24,9 @@ from __future__ import division
 from __future__ import print_function
 from __future__ import unicode_literals
 
+# import builtins  # Python 3 compatibility
+# import future  # Python 3 compatibility
+# import io  # Python 3 compatibility
 import time
 
 import numpy as np
@@ -113,12 +131,12 @@ def check_buttons(buttons, pause=0):
     pressed = {}
     for pin in buttons:  # short pressed
         pressed[pin] = 0
-        if is_on(pin):
+        if is_high(pin):
             pressed[pin] += 1
     if pause:  # long pressed
         time.sleep(pause)
         for pin in buttons:
-            if is_on(pin):
+            if is_high(pin):
                 pressed[pin] += 1
     return pressed
 
@@ -159,3 +177,9 @@ def setup(in_pins=[], out_pins=[], in_pull=GPIO.PUD_DOWN, out_initial=LOW,
 def cleanup():
     """Cleanup procedure."""
     GPIO.cleanup()
+
+
+if __name__ == '__main__':
+    # import doctest
+    # doctest.testmod(verbose=True)
+    pass

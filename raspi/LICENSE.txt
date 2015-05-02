@@ -1,10 +1,7 @@
-License
-=======
-
 ::
 
-        raspi
-        Copyright (C) 2014  Joao Carlos Roseta Matos
+        raspi - Helper functions to use with the Raspberry Pi and the RPi.GPIO.
+        Copyright 2009-2015 Joao Carlos Roseta Matos
 
         This program is free software; you can redistribute it and/or modify
         it under the terms of the GNU General Public License as published by
